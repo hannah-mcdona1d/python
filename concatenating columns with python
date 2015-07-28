@@ -1,0 +1,32 @@
+Hi, I am workig with a table extracted from a PDF so it is quite messy. I need to concatenate the lines, the code I have is incomplete and I'm not sure how to fix it:
+import sys
+
+# Assigning count number and getting rid of right space
+def main():
+	count = 0
+	pieces = []
+	for line in open(infile, 'U'):
+		if count < 130: 
+			data = line.replace('"', '').rstrip().split("\t")
+			data = clean_data(data) 
+			if data[1] == "year" and data[1] != "":
+				write_pieces(pieces)
+				pieces = data
+				str.join(pieces)
+			else: 
+				for i in range(len(data)):
+					pieces[i] = pieces[i] + data[i]
+					str.join(pieces)
+
+# Executing command to remove right space
+def clean_data(s): 
+	return [x.rstrip() for x in s]
+
+def write_pieces(pieces):
+	print 
+
+if __name__ == '__main__':
+	infile = "turtles_for_meg.txt"
+	main()
+	
+	ALL help would be appreciated :)
